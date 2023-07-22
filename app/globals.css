@@ -16,12 +16,24 @@
   }
 }
 
+body,
+body[data-theme="light"] {
+  --color-text-primary: #27201a;
+  --color-text-secondary: #076963;
+  --color-bg-primary: #fff;
+  --color-bg-toggle: #1e90ff;
+}
+
+body[data-theme="dark"] {
+  --color-text-primary: #e3e3e3;
+  --color-text-secondary: #ff6b00;
+  --color-bg-primary: #15232d;
+  --color-bg-toggle: #a9a9a9;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: sans-serif;
+  transition: background 0.25s ease-in-out;
 }
