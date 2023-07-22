@@ -66,12 +66,22 @@ export default function Page(){
       }, [runSpeedTest]);
     
 
-    return(
-        <div>
-            <h1>Testing your internet speed!</h1>
-            {downloadSpeed && <p>Download Speed: {downloadSpeed} Mbps</p>}
-            {uploadSpeed && <p>Upload Speed: {uploadSpeed} Mbps</p>}
-            {loading && <p>Testing....</p>}
-        </div>
-    )
+      if(loading){
+        return(
+            <div>
+                <p>Calculating internet speed....</p>
+                <h6>Download Speed:</h6>
+                <h6>Upload Speed:</h6>
+            </div>
+        )
+      }
+      else{
+        return(
+            <div>
+                <h1>Calculations are complete!</h1>
+                {downloadSpeed && <p>Download Speed: {downloadSpeed} Mbps</p>}
+                {uploadSpeed && <p>Upload Speed: {uploadSpeed} Mbps</p>}
+            </div>
+        )
+      }
 }
